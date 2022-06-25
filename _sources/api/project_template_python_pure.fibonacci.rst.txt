@@ -1,0 +1,6 @@
+fibonacci
+=========
+
+.. currentmodule:: project_template_python_pure
+
+.. autofunction:: fibonacci
