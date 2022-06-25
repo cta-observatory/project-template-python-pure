@@ -78,3 +78,37 @@ jobs:
             -v
 
       - uses: codecov/codecov-action@v2
+
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.8"
+
+      - name: Install doc dependencies
+        run: |
+          pip install -e .[docs]
+          git describe --tags
+          python -c 'import project_template_python_pure; print(project_template_python_pure.__version__)'
+          # no files here yet, so not tracked by git
+          mkdir -p docs/_static
+
+      - name: Build docs
+        run: make html SPHINXOPTS="-W --keep-going -n --color -j auto"
+
+      - name: Deploy to gihub pages
+        # only run on push to master
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build/html
+          CLEAN: true
+          SINGLE_COMMIT: true
