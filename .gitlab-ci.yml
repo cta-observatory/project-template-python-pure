@@ -34,7 +34,7 @@ static-code-checks:
 # in the gitlab ci secrets
 pypi:
   image: "python:3.8"
-  stage: release
+  stage: deploy
   script:
     - pip install -U twine build
     - python -m build
