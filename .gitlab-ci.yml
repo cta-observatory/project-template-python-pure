@@ -1,5 +1,12 @@
-static-code-checks:
-  stage: build
+# jobs in the same stage run in parallel
+# later stages run after all jobs of previous stage were successfull
+stages:
+  - static-checks
+  - test
+  - deploy
+
+flake8:
+  stage: static-checks
   image: "python:3.8"
 
   before_script:
@@ -22,9 +29,9 @@ tests:
   parallel:
     matrix:
       - PYTHON_VERSION:
-        # - "3.8"
-        # - "3.9"
-        # - "3.10"
+        - "3.8"
+        - "3.9"
+        - "3.10"
         - "3.11"
   image: "python:$PYTHON_VERSION"
 
@@ -37,8 +44,8 @@ pypi:
     - pip install -U twine build
     - python -m build
     - twine upload dist/*
-  # only:
-  #   - tags
+  only:
+    - tags
   variables:
     TWINE_NON_INTERACTIVE: "true"
     TWINE_USERNAME: "__token__"
