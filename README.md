@@ -28,12 +28,10 @@ version information is included in the sdist and wheel files and `setuptools_scm
 when installing those. The setup is somewhat complex and was taken by astropy. It ensures that
 the setuptools scm version is only used in development setups, not in the releases packages.
 
+## CI
+
+For github, see `.github/workflows/`, for gitlab, see `.gitlab-ci.yml`
 
 ## Docs
 
 The sphinx setup here is WIP, to be improved.
-
-
-## CI
-
-For github, see `.github/workflows/`, for gitlab, see `.gitlab-ci.yml`

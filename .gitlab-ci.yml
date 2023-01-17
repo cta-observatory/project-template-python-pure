@@ -28,3 +28,19 @@ static-code-checks:
 
   script:
     - flake8 src/
+
+
+# need to set the TWINE_PASSWORD env variable
+# in the gitlab ci secrets
+pypi:
+  image: "python:3.8"
+  stage: release
+  script:
+    - pip install -U twine build
+    - python -m build
+    - twine upload dist/*
+  only:
+    - tags
+  variables:
+    TWINE_USERNAME: "__token__"
+    TWINE_REPOSITORY: "testpypi" # remove to upload to actual pypi
