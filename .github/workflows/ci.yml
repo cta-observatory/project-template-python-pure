@@ -117,10 +117,8 @@ jobs:
       - name: Deploy to gihub pages
         # only run on push to master
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: build/html
-          CLEAN: true
-          SINGLE_COMMIT: true
+          folder: build/html
+          clean: true
+          single_commit: true
