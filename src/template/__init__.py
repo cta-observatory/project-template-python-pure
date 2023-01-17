@@ -16,7 +16,7 @@ def fibonacci(n):
     Parameters
     ----------
     n : `int`
-       Which number to calculate, n >= 0. 
+       Which number to calculate, n >= 0.
 
     Returns
     -------
