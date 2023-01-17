@@ -1,13 +1,13 @@
-.. project_template_python_pure documentation master file, created by
+.. template documentation master file, created by
    sphinx-quickstart on Sat Jun 25 14:39:18 2022.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to project_template_python_pure's documentation!
+Welcome to template's documentation!
 ========================================================
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :caption: Contents:
 
     reference
