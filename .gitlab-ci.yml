@@ -26,6 +26,9 @@ tests:
   script:
     - pytest -v
 
+  variables:
+    PYTEST_ADDOPTS: --color=yes
+
   parallel:
     matrix:
       - PYTHON_VERSION:
