@@ -23,9 +23,9 @@ release = version
 extensions = [
     "sphinx.ext.githubpages",
     "sphinx.ext.intersphinx",
-    "sphinx.ext.napoleon",
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
+    "numpydoc"
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -44,10 +44,6 @@ default_role = "py:obj"
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3.8", None),
 }
-
-# napoleon config (numpy-like docstrings)
-napoleon_google_docstring = False
-napoleon_numpy_docstring = True
 
 # -- Options for HTML output -------------------------------------------------
 

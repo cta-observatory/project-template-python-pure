@@ -36,8 +36,11 @@ test = [
 ]
 doc = [
   "sphinx",
-  "sphinx-automodapi",
+  "numpydoc",
   "pydata-sphinx-theme",
+]
+dev = [
+  "setuptools_scm",
 ]
 
 [tool.setuptools_scm]
