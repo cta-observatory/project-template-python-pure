@@ -1,0 +1,29 @@
+# shared definitions for all versions
+tests:
+  stage: test
+
+  before_script:
+    - python --version
+    - pip install .[test]
+
+  script:
+    - pytest -v
+
+  parallel:
+    matrix:
+      - image: 
+        - "python:3.8"
+        - "python:3.9"
+        - "python:3.10"
+        - "python:3.11"
+
+static-code-checks:
+  stage: test
+  image: "python:3.8"
+
+  before_script:
+    - python --version
+    - pip install flake8
+
+  script:
+    - flake8 src/
