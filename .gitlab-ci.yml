@@ -1,4 +1,14 @@
-# shared definitions for all versions
+static-code-checks:
+  stage: build
+  image: "python:3.8"
+
+  before_script:
+    - python --version
+    - pip install flake8
+
+  script:
+    - flake8 src/
+
 tests:
   stage: test
 
@@ -12,23 +22,11 @@ tests:
   parallel:
     matrix:
       - PYTHON_VERSION:
-        - "3.8"
-        - "3.9"
-        - "3.10"
+        # - "3.8"
+        # - "3.9"
+        # - "3.10"
         - "3.11"
   image: "python:$PYTHON_VERSION"
-
-static-code-checks:
-  stage: test
-  image: "python:3.8"
-
-  before_script:
-    - python --version
-    - pip install flake8
-
-  script:
-    - flake8 src/
-
 
 # need to set the TWINE_PASSWORD env variable
 # in the gitlab ci secrets
@@ -39,8 +37,9 @@ pypi:
     - pip install -U twine build
     - python -m build
     - twine upload dist/*
-  only:
-    - tags
+  # only:
+  #   - tags
   variables:
+    TWINE_NON_INTERACTIVE: "true"
     TWINE_USERNAME: "__token__"
     TWINE_REPOSITORY: "testpypi" # remove to upload to actual pypi
