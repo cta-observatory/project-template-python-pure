@@ -18,6 +18,7 @@ in the file `pyproject.toml`. `setup.py` and`setup.cfg` are not needed.
 
 We use the `src/` based layout, as this avoids several issues with editable installs and confusion with what
 is imported (local directory or installed module).
+See [setuptools/src-layout](https://setuptools.pypa.io/en/latest/userguide/package_discovery.html#src-layout).
 
 
 ## Versioning
