@@ -11,11 +11,12 @@ tests:
 
   parallel:
     matrix:
-      - image: 
-        - "python:3.8"
-        - "python:3.9"
-        - "python:3.10"
-        - "python:3.11"
+      - PYTHON_VERSION:
+        - "3.8"
+        - "3.9"
+        - "3.10"
+        - "3.11"
+  image: "python:$PYTHON_VERSION"
 
 static-code-checks:
   stage: test
