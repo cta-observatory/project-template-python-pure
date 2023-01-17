@@ -1,2 +1,2 @@
-prune src/project_template_python_pure/_dev_version
+prune src/template/_dev_version
 prune .github

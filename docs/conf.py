@@ -5,11 +5,14 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 # -- Project information -----------------------------------------------------
-import project_template_python_pure
+import template
 
-project = 'project_template_python_pure'
+project = 'template'
 copyright = '2022, Maximilian Nöthe'
 author = 'Maximilian Nöthe'
+version = template.__version__
+# The full version, including alpha/beta/rc tags.
+release = version
 
 
 # -- General configuration ---------------------------------------------------
@@ -20,12 +23,13 @@ author = 'Maximilian Nöthe'
 extensions = [
     "sphinx.ext.githubpages",
     "sphinx.ext.intersphinx",
-    "sphinx_automodapi.automodapi",
-    "numpydoc",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = []
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -35,23 +39,26 @@ exclude_patterns = []
 # have all links automatically associated with the right domain.
 default_role = "py:obj"
 
-version = project_template_python_pure.__version__
-# The full version, including alpha/beta/rc tags.
-release = version
 
-
+# intersphinx allows referencing other packages sphinx docs
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3.8", None),
 }
+
+# napoleon config (numpy-like docstrings)
+napoleon_google_docstring = False
+napoleon_numpy_docstring = True
 
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'pydata_sphinx_theme'
+html_theme = 'alabaster'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ["_static"]
+html_logo = "_static/cta.png"
+

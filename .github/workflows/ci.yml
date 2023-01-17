@@ -40,7 +40,7 @@ jobs:
           - "3.8"
           - "3.9"
           - "3.10"
-          - "3.11-dev"
+          - "3.11"
         os:
           - ubuntu-latest
           - macos-latest
@@ -65,10 +65,10 @@ jobs:
           python -m build
 
       - name: Install the package
-        run: pip install .[all]
+        run: pip install .[test]
 
       - name: Install the package in editable mode
-        run: pip install --editable .[all]
+        run: pip install --editable .[test]
 
       - name: Test with pytest
         run: |
@@ -93,11 +93,9 @@ jobs:
 
       - name: Install doc dependencies
         run: |
-          pip install -e .[docs]
+          pip install -e .[doc]
           git describe --tags
-          python -c 'import project_template_python_pure; print(project_template_python_pure.__version__)'
-          # no files here yet, so not tracked by git
-          mkdir -p docs/_static
+          python -c 'import template; print(template.__version__)'
 
       - name: Build docs
         run: make html SPHINXOPTS="-W --keep-going -n --color -j auto"

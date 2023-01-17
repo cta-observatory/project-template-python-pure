@@ -1,6 +1,44 @@
 [build-system]
-requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2"]
+requires = ["setuptools>=61", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
+[project]
+name = "template"
+description = "Template for a pure python package"
+readme = "README.md"
+license = {text = "BSD-3-Clause"}
+authors = [
+    {name = "Maximilian Linhoff", email = "maximilian.linhoff@tu-dortmund.de"},
+]
+
+requires-python = ">=3.8"
+dependencies = [
+    "numpy",
+]
+
+# needed for setuptools_scm, we don't define a static version
+dynamic = ["version"]
+
+[project.urls]
+repository = "https://github.com/cta-observatory/project-template-python-pure"
+
+[project.scripts]
+fibonacci = "template.cli.fib:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["template._dev_version"]
+
+[project.optional-dependencies]
+test = [
+  "pytest",
+  "pytest-cov",
+]
+doc = [
+  "sphinx",
+  "sphinx-automodapi",
+  "pydata-sphinx-theme",
+]
+
 [tool.setuptools_scm]
-write_to = 'src/project_template_python_pure/_version.py'
+write_to = 'src/template/_version.py'
