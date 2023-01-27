@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61", "setuptools_scm[toml]>=6.2"]
+requires = ["setuptools>=65", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -40,6 +40,16 @@ doc = [
   "pydata-sphinx-theme",
 ]
 dev = [
+  "setuptools_scm",
+]
+
+# unfortunately, there is no way (yet) to generate this automatically using pyproject.toml
+all = [
+  "pytest",
+  "pytest-cov",
+  "sphinx",
+  "numpydoc",
+  "pydata-sphinx-theme",
   "setuptools_scm",
 ]
 

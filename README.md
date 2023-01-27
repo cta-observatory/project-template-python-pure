@@ -21,6 +21,34 @@ is imported (local directory or installed module).
 See [setuptools/src-layout](https://setuptools.pypa.io/en/latest/userguide/package_discovery.html#src-layout).
 
 
+### Editable installations
+
+Editable installations in this setup  rely on PEP 660 (see above), support was introduced in `pip` 21.3 (released 2021-10)
+and setuptools 64.0 (released 2022-08). The setuptools version is required in `pyproject.toml`.
+
+To install in editable mode, use
+```
+$ pip install -e .
+```
+
+you can add extras, e.g. for developing and building the docs, use
+```
+$ pip install -e '.[dev,doc,test]'
+```
+
+or just
+```
+$ pip install -e '.[all]'
+```
+
+
+Keep in mind that editable installations have limitations as to what changes can take effect automatically
+without rerunning `pip install -e .`. Python code changes to existing files take effect, but for example
+adding new entry-points, changes to the source code of compiled extensions etc. will require rerunning the 
+installation.
+
+See <https://setuptools.pypa.io/en/latest/userguide/development_mode.html#limitations>
+
 ## Versioning
 
 This template uses `setuptools_scm` to automatically generate the version from the last git tag.
