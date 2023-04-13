@@ -10,7 +10,7 @@ __all__ = [
 
 
 def fibonacci(n):
-    '''
+    """
     Calculate the nth fibonacci number.
 
     Parameters
@@ -33,10 +33,10 @@ def fibonacci(n):
     1
     >>> fibonacci(3)
     2
-    '''
+    """
 
     if n < 0:
-        raise ValueError(f'n must be >= 0, got {n}')
+        raise ValueError(f"n must be >= 0, got {n}")
 
     if n == 0:
         return 0

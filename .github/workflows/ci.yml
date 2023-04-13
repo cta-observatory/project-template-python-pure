@@ -22,16 +22,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
         with:
-          python-version: "3.8"
-
-      - name: pyflakes
-        run: |
-          pip install pyflakes
-          pyflakes src/
+          fetch-depth: 0
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - uses: pre-commit/action@v3.0.0
+        with:
+          extra_args: --all-files
 
   tests:
     strategy:

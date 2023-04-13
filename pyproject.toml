@@ -55,3 +55,11 @@ all = [
 
 [tool.setuptools_scm]
 write_to = 'src/template/_version.py'
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39', 'py310', 'py311']
+
+[tool.isort]
+profile = "black"
+line_length = 88

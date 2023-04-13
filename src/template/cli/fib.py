@@ -1,6 +1,6 @@
-from template import fibonacci
 from argparse import ArgumentParser
 
+from template import fibonacci
 
 parser = ArgumentParser()
 parser.add_argument("n", type=int)
