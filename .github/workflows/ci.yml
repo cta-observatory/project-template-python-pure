@@ -114,7 +114,7 @@ jobs:
       - name: Build docs
         run: make html SPHINXOPTS="-W --keep-going -n --color -j auto"
 
-      - name: Deploy to gihub pages
+      - name: Deploy to github pages
         # only run on push to master
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         uses: JamesIves/github-pages-deploy-action@v4
