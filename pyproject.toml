@@ -43,14 +43,9 @@ dev = [
   "setuptools_scm",
 ]
 
-# unfortunately, there is no way (yet) to generate this automatically using pyproject.toml
+# we can use self-references to simplify all
 all = [
-  "pytest",
-  "pytest-cov",
-  "sphinx",
-  "numpydoc",
-  "pydata-sphinx-theme",
-  "setuptools_scm",
+  "project-template-python-pure[test,doc,dev]",
 ]
 
 [tool.setuptools_scm]
