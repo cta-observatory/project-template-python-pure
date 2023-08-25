@@ -1,9 +1,18 @@
+# For more information on the content of this file,
+# the developer documentation and the PyPA packaging documentation
+# * https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#declaring-project-metadata
+# * The setuptools and setuptools_scm documentation for the respective sections
 [build-system]
 requires = ["setuptools>=65", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "project-template-python-pure"
+# this is the name of the project / the python distribution package.
+# In most cases, it should be identical to the name of the main python package inside it.
+# this will be the name e.g. used for `pip install` and it must be globally unique to be
+# able to upload the package distribution to PyPI.
+name = "python-project-template"
+
 description = "Template for a pure python package"
 readme = "README.md"
 license = {text = "BSD-3-Clause"}
